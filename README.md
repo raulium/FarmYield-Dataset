@@ -1,10 +1,11 @@
-# Final Project
+# FarmYield Dataset Infomatic-fantastic
 
 ## Disclaimer!
 This project was submitted as a final project for a college computer vision course.  I do not plan to continue development on this repository, and as such a few points need to be made clear up front:
 
 * The full dataset is not contained in this repository. Not only does the data contain several GB of satellite imagery, but it contains raw latitude and longitude coordinates for farmland which can be traced back to the farmer who volunteered harvest/yield data related to their crop.  As such, the intermediate product these scripts create have been provided in an anonymized form.  This means the dataset -- as it was used in my analysis and reporting -- is accessible and usable from this repo, but I will not be performing any "advanced" methods to enrich the dataset further (for example, providing anonymized pixel information to retain locality and adjacency).
 * There are undocumented steps in preparing files (such as the imagery geoTIFF files) which are necessary before the ``setup.py`` program can process the files. I will discuss what the script expects, but will make no effort to detail all the work I did to get them to that point.
+* The associated paper written for this project is probably wrought with inaccuracies. This was done as an undergraduate student provided with enough direction to be dangerous. TLDR; please be kind, as I'm sure one day I'll look back on this and wonder what it was I was thinking.
 * If you are anyone other than my professor or TA, I probably won't respond to requests for further details or explanation not already outlined in this README.
 
 ## Getting Started
