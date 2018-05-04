@@ -1,0 +1,6 @@
+data/proc/csv/
+data/proc/img/
+data/raw/
+.DS_Store
+.bib
+.bbl
