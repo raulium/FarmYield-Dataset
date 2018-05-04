@@ -4,7 +4,7 @@
 This project was submitted as a final project for a college computer vision course.  I do not plan to continue development on this repository, and as such a few points need to be made clear up front:
 
 * The full dataset is not contained in this repository. Not only does the data contain several GB of satellite imagery, but it contains raw latitude and longitude coordinates for farmland which can be traced back to the farmer who volunteered harvest/yield data related to their crop.  As such, the intermediate product these scripts create have been provided in an anonymized form.  This means the dataset -- as it was used in my analysis and reporting -- is accessible and usable from this repo, but I will not be performing any "advanced" methods to enrich the dataset further (for example, providing anonymized pixel information to retain locality and adjacency).
-* There are undocumented steps in preparing files (such as the imagery geoTIFF files) which are necessary before the setup.py program can process the files. I will discuss what the script expects, but will make no effort to detail all the work I did to get them to that point.
+* There are undocumented steps in preparing files (such as the imagery geoTIFF files) which are necessary before the ``setup.py`` program can process the files. I will discuss what the script expects, but will make no effort to detail all the work I did to get them to that point.
 * If you are anyone other than my professor or TA, I probably won't respond to requests for further details or explanation not already outlined in this README.
 
 ## Getting Started
@@ -12,29 +12,36 @@ This project was submitted as a final project for a college computer vision cour
 All files should be ran from the directory in which they are located.
 
 * Dependencies:
- * Python 2.7
- * scikit-learn (sklearn) -- any version prior to 0.20
- * numpy
- * geoio
- * gdal/osgeo
+  * Python 2.7
+  * scikit-learn (sklearn) -- any version prior to 0.20
+  * numpy
+  * geoio
+  * gdal/osgeo
 
 ### Working File Structure
 
 * FinalProject
- * Data
-  * proc - contains intermediate csv files produced by setup.py
-   * img
-    * 2016 - folder containing transformed satellite imagery (see setup.py for details), each image being its own band.
-    * 2017
-  * raw
- * paper - tex, pdf, and image files related to my final report
- * src - python code that does all the heavy lifting
+  * Data
+    * proc - contains intermediate csv files produced by setup.py
+      * csv
+        * 2016 - folder(s) containing yield measurements collected from combine harvesting (see ``setup.py`` for details), each file being data for each field
+        * 2017
+      * img
+        * 2016 - folder(s) containing transformed satellite imagery (see ``setup.py`` for details), each image being its own band.
+        * 2017 ...
+    * raw
+      * img - folder containing ``tar.gz`` archives of satellite imagery, and informational txt file describing each band designation
+      * yield
+        * 2016 - folder(s) containing original zip files sent from farmer. These are a combination of ``.dat`` and ``.txt`` files readable by ASF View by Chase IH.
+        * 2017 ...
+  * paper - tex, pdf, and image files related to my final report
+  * src - python code that does all the heavy lifting
 
 ### setup.py
 
-__This file shouldn't ever need to be ran if you want to use the farm yield dataset.__ The purpose of this program was to reading in satellite imagery (already transformed from UTM to lat/long coordinate system, a.k.a, WGS 84) found in /data/proc/img/YYYY. The global variable ``IMGS`` contains the file names of the geoTIFF files it expects (and can be modified to include more if necessary)
+__This file shouldn't ever need to be ran if you want to use the farm yield dataset.__ The purpose of this program was to reading in satellite imagery (already transformed from UTM to lat/long coordinate system, a.k.a, WGS 84) found in ``/data/proc/img/YYYY``. The global variable ``IMGS`` contains the file names of the geoTIFF files it expects (and can be modified to include more if necessary)
 
-This program also requires harvest data in csv format, with at least the following values per record:
+This program also requires harvest data in ``.csv`` format, with at least the following values per record:
 
 * __Longitude__
 * __Latitude__
